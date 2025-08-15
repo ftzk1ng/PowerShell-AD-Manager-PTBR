@@ -20,7 +20,7 @@ Uma ferramenta de linha de comando poderosa e interativa, criada para administra
   - **Opção de Troca no Próximo Logon:** Decida interativamente se o usuário deve ou não alterar a senha ao logar.
 
 ✔️ **Auditoria Detalhada:**
-  - Todas as ações (sucessos e falhas) são registradas em um arquivo **CSV** estruturado.
+  - Todas as ações (sucessos e falhas) são registradas em um arquivo **txt** estruturado.
   - O log captura quem executou a ação, de qual computador (hostname e IP), quando, em qual conta alvo, e o resultado (incluindo mensagens de erro).
 
 ✔️ **Interface Intuitiva:**
@@ -95,3 +95,5 @@ O arquivo de log gerado pode ser aberto no Excel e contém as seguintes colunas 
 ## Licença
 
 Este projeto é licenciado sob a Licença MIT.
+
+Projeto criado utilizando conhecimentos básicos em powershell com auxilio do Gemini 2.5 PRO, pretendo futuramente incluir novas funcionalidades, como a inclusão e remoção de grupos, criar uma interface gráfica para o projeto e geração de logs em planilhas CSV, não em .txt
