@@ -1,36 +1,50 @@
-# Ferramenta de Gerenciamento de Contas Active Directory em PowerShell
+# Ferramenta Gráfica de Gerenciamento de Contas Active Directory
 
-![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)
+![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue) ![Framework](https://img.shields.io/badge/UI-Windows%20Forms-orange)
 
-Uma ferramenta de linha de comando poderosa e interativa, criada para administradores de sistema, que agiliza e protege as tarefas mais comuns de gerenciamento de contas no Active Directory. Diga adeus a cliques repetitivos no ADUC!
+Transforme a gestão de contas do dia a dia no Active Directory em uma experiência visual, rápida e intuitiva. Esta aplicação, construída sobre um poderoso back-end em PowerShell, oferece uma interface gráfica completa para eliminar a necessidade de comandos e cliques repetitivos no ADUC.
+
+---
+
+## Screenshot da Aplicação
+
+*(Dica: Tire um print da sua aplicação em funcionamento, salve na pasta do projeto e substitua o link abaixo. Isso torna seu repositório muito mais profissional!)*
+
+![Screenshot da Aplicação](docs/screenshot.png)
+
+---
+
+### Por que uma Interface Gráfica?
+
+A evolução deste projeto para uma GUI foi focada em adiantar ainda mais os processos da equipe de TI, oferecendo:
+
+*   **Acessibilidade Total:** Não é preciso ser um expert em PowerShell. Qualquer membro da equipe, do júnior ao sênior, pode usar a ferramenta com segurança e confiança.
+*   **Eficiência e Velocidade:** A busca parcial com lista de resultados, combinada com botões de ação claros, torna o fluxo de trabalho muito mais rápido do que navegar por menus e propriedades no ADUC.
+*   **Redução de Erros:** Menus visuais e caixas de confirmação minimizam o risco de erros de digitação ou ações acidentais, como desativar a conta errada.
+*   **Curva de Aprendizagem Zero:** A interface é intuitiva e autoexplicativa, eliminando a necessidade de treinamento extensivo.
 
 ---
 
 ## Funcionalidades Principais
 
-✔️ **Busca Rápida e Precisa:** Encontre usuários instantaneamente pelo `SamAccountName` ou `UserPrincipalName` (UPN).
+✔️ **Busca Flexível com Múltiplos Resultados:** Procure por parte do nome, `SamAccountName` ou UPN e selecione o usuário correto em uma lista clara e organizada.
 
 ✔️ **Gerenciamento Completo de Contas:**
-  - **Desbloqueio** de contas com um único comando.
+  - **Desbloqueio** de contas com um único clique.
   - **Habilitação (Reativação)** e **Desabilitação** de contas com um menu inteligente e passo de confirmação para evitar acidentes.
+  - **Edição de Atributos:** Altere o Departamento e o Telefone do usuário em uma janela de edição dedicada.
 
 ✔️ **Reset de Senha Seguro e Flexível:**
-  - **Geração Aleatória:** Crie senhas temporárias seguras com um prefixo padrão e números aleatórios, que são exibidas na tela e copiadas para a área de transferência.
-  - **Senha Personalizada:** Defina uma senha específica de forma segura, sem exibi-la na tela.
+  - **Geração Aleatória:** Crie senhas temporárias seguras, que são exibidas na tela e copiadas para a área de transferência.
+  - **Senha Personalizada:** Defina uma senha específica de forma segura através de um campo mascarado.
   - **Opção de Troca no Próximo Logon:** Decida interativamente se o usuário deve ou não alterar a senha ao logar.
 
 ✔️ **Auditoria Detalhada:**
-  - Todas as ações (sucessos e falhas) são registradas em um arquivo **txt** estruturado.
-  - O log captura quem executou a ação, de qual computador (hostname e IP), quando, em qual conta alvo, e o resultado (incluindo mensagens de erro).
+  - Todas as ações (sucessos e falhas) são registradas em um arquivo **CSV** estruturado.
+  - O log captura quem executou a ação, de qual computador (hostname e IP), quando, em qual conta alvo, e o resultado.
 
 ✔️ **Interface Intuitiva:**
-  - Um menu de ações claro e contextualizado para cada usuário.
-  - Exibição de detalhes importantes como data do último logon e status de expiração da senha.
-  - Permanece no menu do usuário após uma ação, permitindo múltiplas operações sem nova pesquisa.
-
-✔️ **Segurança e Agilidade:**
-  - **Lista de Contas Protegidas:** Evita alterações acidentais em contas de serviço e administradores.
-  - **Execução por Parâmetro:** Inicie o script e vá direto para a tela de um usuário específico (`.\Gerenciador-AD.ps1 nome.usuario`).
+  - Exibição clara de detalhes importantes como data do último logon e status de expiração da senha.
   - **Copiar Detalhes:** Copie um resumo das informações do usuário para a área de transferência, ideal para colar em tickets de suporte.
 
 ---
@@ -40,38 +54,27 @@ Uma ferramenta de linha de comando poderosa e interativa, criada para administra
 1.  **Windows PowerShell 5.1** ou superior.
 2.  **Módulo Active Directory para Windows PowerShell:**
     - Geralmente instalado com as Ferramentas de Administração de Servidor Remoto (RSAT).
-3.  **Permissões:** O script deve ser executado com uma conta que tenha permissões para ler e modificar usuários no Active Directory.
+3.  **Permissões:** A aplicação deve ser executada com uma conta que tenha permissões para ler e modificar usuários no Active Directory.
 
 ---
 
 ## Como Usar
 
-1.  **Download:** Baixe o script `Gerenciador-AD.ps1` deste repositório.
+A aplicação é composta por dois arquivos que devem estar **na mesma pasta**:
+*   `Gerenciador-AD.ps1` (o back-end com a lógica)
+*   `Iniciar-GerenciadorGUI.ps1` (o front-end que você executa)
 
-2.  **Personalização (Opcional):**
-    - Abra o script e edite a lista `$ContasProtegidas` para incluir as contas críticas do seu ambiente.
-    - Altere o prefixo da senha aleatória na função `Exibir-MenuDeAcoes` (atualmente "SuaEmpresa@").
+1.  **Execução Principal:**
+    - O método recomendado é executar o arquivo `Iniciar-GerenciadorGUI.ps1`.
+    - Clique com o botão direito no arquivo e selecione "Executar com o PowerShell". A interface gráfica será iniciada.
 
-3.  **Execução:**
-    - Clique com o botão direito no arquivo `.ps1` e selecione "Executar com o PowerShell".
-    - **Recomendado:** Abra uma janela do PowerShell como Administrador, navegue até a pasta do script e execute:
-      ```powershell
-      .\Gerenciador-AD.ps1
-      ```
-
-4.  **Execução Rápida com Parâmetro:**
-    Para ir direto a um usuário, execute o script passando o SamAccountName ou UPN:
-    ```powershell
-    .\Gerenciador-AD.ps1 usuario.alvo
-    ```
-
-5.  **Criando um Atalho:**
+2.  **Criando um Atalho para Facilitar a Distribuição:**
     - Crie um atalho na área de trabalho.
-    - No campo "Destino", use o seguinte comando (ajuste o caminho do arquivo):
+    - No campo "Destino", use o seguinte comando, ajustando o caminho para o seu arquivo:
       ```
-      powershell.exe -NoExit -ExecutionPolicy Bypass -File "C:\Scripts\Gerenciador-AD.ps1"
+      powershell.exe -NoExit -ExecutionPolicy Bypass -File "C:\Caminho\Para\Seus\Scripts\Iniciar-GerenciadorGUI.ps1"
       ```
-    - Nas propriedades avançadas do atalho, marque "Executar como administrador".
+    - Nas propriedades avançadas do atalho, marque **"Executar como administrador"**.
 
 ---
 
@@ -95,5 +98,3 @@ O arquivo de log gerado pode ser aberto no Excel e contém as seguintes colunas 
 ## Licença
 
 Este projeto é licenciado sob a Licença MIT.
-
-Projeto criado utilizando conhecimentos básicos em powershell com auxilio do Gemini 2.5 PRO, pretendo futuramente incluir novas funcionalidades, como a inclusão e remoção de grupos, criar uma interface gráfica para o projeto e geração de logs em planilhas CSV, não em .txt
