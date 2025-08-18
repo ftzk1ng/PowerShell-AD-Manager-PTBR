@@ -8,9 +8,9 @@ Transforme a gestão de contas do dia a dia no Active Directory em uma experiên
 
 ## Screenshot da Aplicação
 
-*(Dica: Tire um print da sua aplicação em funcionamento, salve na pasta do projeto e substitua o link abaixo. Isso torna seu repositório muito mais profissional!)*
+<img width="399" height="168" alt="image" src="https://github.com/user-attachments/assets/c9eb30f4-1175-4513-88b1-d945ec9c794b" />
+<img width="483" height="526" alt="image" src="https://github.com/user-attachments/assets/f77c80dd-cd05-4457-b2b0-f69afddd3e9b" />
 
-![Screenshot da Aplicação](docs/screenshot.png)
 
 ---
 
